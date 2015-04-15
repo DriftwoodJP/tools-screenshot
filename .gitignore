@@ -1,3 +1,6 @@
+*.txt
+/output/
+
 *.gem
 *.rbc
 /.config
