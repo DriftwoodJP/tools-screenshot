@@ -21,7 +21,8 @@ opt.parse!(ARGV)
 
 data = []
 File.open(ARGV[0], 'r') do |io|
-  while line = io.gets
+  line = io.gets
+  while line
     data << line.chomp!
   end
 end
@@ -40,7 +41,7 @@ anchors.flatten!.uniq!
 targets = []
 if OPTS[:i]
   anchors.each do |a|
-    targets << a if a =~ /#{BASE_URI}/
+    targets << a if a.match(BASE_URI)
   end
 else
   targets = anchors
