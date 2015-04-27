@@ -21,8 +21,7 @@ opt.parse!(ARGV)
 
 data = []
 File.open(ARGV[0], 'r') do |io|
-  line = io.gets
-  while line
+  while line = io.gets
     data << line.chomp!
   end
 end
