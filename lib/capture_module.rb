@@ -1,5 +1,5 @@
 module CaptureModule
-  VERSION = '0.0.1'
+  VERSION = '0.0.3'
 
   def get_html(uri, options)
     begin
@@ -13,7 +13,8 @@ module CaptureModule
 
   def get_anchors(html, uri, base_uri)
     anchors = []
-    html.css('a').each do |anchor|
+    html.css('a[href]').each do |anchor|
+      p anchor[:href]
       if anchor[:href] =~ URI::regexp
         anchors.push(URI(anchor[:href]).normalize.to_s)
       else
