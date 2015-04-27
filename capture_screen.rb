@@ -7,7 +7,8 @@ require './config'
 
 data = []
 File.open(ARGV[0], 'r') do |io|
-  while line = io.gets
+  line = io.gets
+  while line
     data << line.chomp!
   end
 end
